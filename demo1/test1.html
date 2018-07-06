@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/vue/2.2.2/vue.js"></script>
+</head>
+
+<body>
+   <div id="app">
+         <p>{{ message }}</p>
+         <p v-html="message"></p>
+         <h1>site : {{ site }}</h1>
+         <h1>{{details()}}</h1>
+         <h2 @click="cl()">点击</h2>
+         <label for="rl">修改颜色</label><input type="checkbox" v-model="class1" id="r1">
+         <br/> <br/>
+         <div v-bind:class="{'class1':class1}">
+           directiva v-bind:class
+         </div><br>
+         <p>字符串反转</p>
+         {{ message1.split('').reverse().join('')}}
+   </div>
+   <script>
+       new Vue ({
+           el: '#app',
+           data: {
+               message: '<h1> Hello Vue.js!</h1>',
+               site: 'vue',
+               class1: false,
+               message1: 'vue.js'
+           },
+           methods: {
+               details: function () {
+                   return this.site + '我的'
+               },
+               cl () {
+                   this.message = 'DY is DB'
+               }
+           }
+       })
+   </script>
+   <style>
+       .class1{
+           background: #444;
+           color: #eee;
+       }
+   </style>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>条件</title>
+    <script src="https://cdn.bootcss.com/vue/2.2.2/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <p v-if="seven">为true就看到我</p>
+    <template v-if="ok">
+        <h1>为true</h1>
+    </template>
+    <template v-else >
+        <h1>false的时候</h1>
+    </template>
+    <p>{{ c() }}</p>
+    <a v-bind:href="url">点击</a><br>
+    <a :href="url1">v-bind缩写</a>
+    <P> v-model 指令来实现双向数据绑定：</P>
+    {{ message }}<br>
+    <input v-model="message">
+    <p>按钮的事件我们可以使用 v-on 监听事件，并对用户的输入进行响应,v-on 缩写为@click="reverseMessage"</p>
+    <p>{{ ms }}</p>
+    <button v-on:click="reverseMessage">反转字符串</button>
+    <div v-if="type === 'A'">
+        A
+    </div>
+    <div v-else-if="type === 'B'">
+        B
+    </div>
+    <div v-else>
+        C
+    </div>
+</div>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            seven: true,
+            ok: false,
+            url: 'http://www.baidu.com',
+            url1: 'http://www.baidu.com',
+            message:'dy',
+            ms: 'runoob!',
+            type:'A'
+        },
+        methods:{
+            c: function(){
+                return 111;
+            },
+         reverseMessage: function(){
+          this.ms=this.ms.split('').reverse().join('')
+         }
+        }
+    })
+
+</script>
+
+</body>
+</html>
